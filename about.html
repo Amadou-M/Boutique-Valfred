@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Beauté Valfred</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Beauté Valfred</h2>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="about.html" class="nav-link active">À propos</a>
+                <a href="shop.html" class="nav-link">Boutique</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="gallery.html" class="nav-link">Galerie</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <span class="cart-count" id="cart-count">0</span>
+                    🛒
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh; padding-top: 120px;">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Notre Histoire</h1>
+                <p class="hero-subtitle">L'authenticité africaine au cœur de notre passion</p>
+            </div>
+            <div class="hero-image">
+                <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="about-story">
+                <div class="section-header">
+                    <h2>Qui Sommes-Nous ?</h2>
+                    <p>Une passion transmise de génération en génération</p>
+                </div>
+                
+                <div class="story-content">
+                    <div class="story-text" data-aos="fade-up">
+                        <p>Bienvenue dans notre univers où la richesse culturelle africaine prend vie à travers chaque produit et chaque soin. Notre boutique est née d'une passion profonde pour l'artisanat traditionnel africain et d'un désir de partager cette beauté authentique avec le monde.</p>
+                        
+                        <p>Fondée en 2015 par Amina Kone, originaire de Côte d'Ivoire, notre boutique puise ses racines dans les traditions familiales transmises de mère en fille. Chaque vêtement, chaque bijou, chaque produit de soin raconte une histoire, porte en lui l'âme et le savoir-faire ancestral de l'Afrique.</p>
+                        
+                        <p>Nous travaillons directement avec des artisans locaux, des coopératives de femmes et des producteurs traditionnels à travers différents pays d'Afrique de l'Ouest. Cette approche nous permet de garantir l'authenticité de nos produits tout en soutenant les communautés locales.</p>
+                    </div>
+                    
+                    <div class="story-image" data-aos="fade-left">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="image-caption">
+                            <p>Amina Kone, fondatrice et directrice</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section section-padding" style="background: var(--gray-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Valeurs</h2>
+                <p>Les principes qui guident notre mission</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card" data-aos="fade-up">
+                    <div class="value-icon">🌍</div>
+                    <h3>Authenticité</h3>
+                    <p>Nous privilégions les produits authentiques, créés selon les méthodes traditionnelles africaines, sans compromis sur la qualité.</p>
+                </div>
+                
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-icon">🤝</div>
+                    <h3>Commerce Équitable</h3>
+                    <p>Nous travaillons en partenariat direct avec les artisans, garantissant une rémunération juste et des conditions de travail dignes.</p>
+                </div>
+                
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-icon">🌱</div>
+                    <h3>Durabilité</h3>
+                    <p>Nos produits sont fabriqués à partir de matériaux naturels et durables, dans le respect de l'environnement.</p>
+                </div>
+                
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-icon">❤️</div>
+                    <h3>Passion</h3>
+                    <p>Chaque produit est sélectionné avec amour et passion, pour vous offrir le meilleur de la culture africaine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section section-padding">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text" data-aos="fade-right">
+                    <h2>Notre Mission</h2>
+                    <p>Faire découvrir et valoriser la richesse culturelle africaine à travers des produits authentiques et des services traditionnels.</p>
+                    
+                    <div class="mission-points">
+                        <div class="mission-point">
+                            <span class="point-number">01</span>
+                            <div class="point-content">
+                                <h4>Préserver les Traditions</h4>
+                                <p>Maintenir vivantes les techniques artisanales ancestrales et les transmettre aux nouvelles générations.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mission-point">
+                            <span class="point-number">02</span>
+                            <div class="point-content">
+                                <h4>Soutenir les Artisans</h4>
+                                <p>Créer des opportunités économiques durables pour les artisans et les communautés locales.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mission-point">
+                            <span class="point-number">03</span>
+                            <div class="point-content">
+                                <h4>Partager la Culture</h4>
+                                <p>Faire connaître la beauté et la diversité de la culture africaine au-delà des frontières.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mission-image" data-aos="fade-left">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section section-padding" style="background: var(--gray-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Notre Équipe</h2>
+                <p>Des passionnés à votre service</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member" data-aos="fade-up">
+                    <div class="member-image">
+                       <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    </div>
+                    <div class="member-info">
+                        <h3>VALFRED</h3>
+                        <p class="member-role">Fondatrice & Directrice</p>
+                        <p>Passionnée par la culture africaine depuis son enfance, Amina a créé la boutique pour partager sa passion et soutenir les artisans de son pays natal.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    </div>
+                    <div class="member-info">
+                        <h3>VALFRED</h3>
+                        <p class="member-role">Spécialiste Soins</p>
+                        <p>Thérapeute traditionnelle formée aux techniques ancestrales, Fatou vous accompagne dans votre bien-être avec des soins authentiques.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+                    <div class="member-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    </div>
+                    <div class="member-info">
+                        <h3>VALFRED</h3>
+                        <p class="member-role">Styliste & Coiffeuse</p>
+                        <p>Experte en coiffures traditionnelles et modernes, Mariame sublime votre beauté naturelle avec créativité et savoir-faire.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section section-padding">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Rejoignez Notre Communauté</h2>
+                <p>Découvrez nos produits authentiques et vivez une expérience unique</p>
+                <div class="cta-buttons">
+                    <a href="shop.html" class="cta-button">Découvrir la Boutique</a>
+                    <a href="services.html" class="link-button">Réserver un Soin</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be populated by JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: <span id="cart-total">0,00 €</span></strong>
+            </div>
+            <button class="checkout-btn">Commander</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Boutique Africaine</h3>
+                    <p>Votre destination pour l'authenticité africaine</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="WhatsApp">📱</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📍 126 Rue de l'Afrique<br>19160 Bruxelles, Belgique</p>
+                    <p>📞 +32 2 123 45 67</p>
+                    <p>✉️ info@boutique-africaine.be</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <p>Lundi - Vendredi: 9h - 18h</p>
+                    <p>Samedi: 10h - 17h</p>
+                    <p>Dimanche: Fermé</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Boutique Africaine. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/animations.js"></script>
+
+    <style>
+        .story-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+
+        .story-image {
+            position: relative;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            background: var(--white);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .mission-points {
+            margin-top: var(--spacing-lg);
+        }
+
+        .mission-point {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .point-number {
+            background: var(--primary-color);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .point-content h4 {
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .team-member {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: var(--spacing-lg);
+        }
+
+        .member-info h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .member-role {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .story-content,
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .story-image img,
+            .mission-image img {
+                height: 300px;
+            }
+        }
+    </style>
+</body>
+</html>

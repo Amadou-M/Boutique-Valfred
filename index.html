@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauté Valfred - Vêtements, Bijoux et Soins Africains</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Beauté Valfred</h2>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link active">Accueil</a>
+                <a href="about.html" class="nav-link">À propos</a>
+                <a href="shop.html" class="nav-link">Boutique</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="gallery.html" class="nav-link">Galerie</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <span class="cart-count" id="cart-count">0</span>
+                    🛒
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Beauté Valfred</h1>
+                <p class="hero-subtitle">Vêtements, bijoux et soins africains</p>
+                <button class="cta-button" onclick="window.location.href='services.html'">
+                    Réservez un soin
+                </button>
+            </div>
+            <div class="hero-image">
+                <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                <img src="images/b1.png" height="50" width="50" alt="Femme africaine élégante">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Notre Histoire</h2>
+                <p>Découvrez l'authenticité de l'artisanat africain</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Bienvenue dans notre boutique où tradition et modernité se rencontrent. Nous proposons une sélection authentique de vêtements, bijoux et soins inspirés de la richesse culturelle africaine.</p>
+                    <p>Chaque produit raconte une histoire, chaque soin honore une tradition ancestrale.</p>
+                    <a href="about.html" class="link-button">En savoir plus</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Produits</h2>
+                <p>Découvrez notre sélection premium</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+                </div>
+            <div class="products-grid">
+                <div class="product-card" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Robe Africaine Élégante</h3>
+                        <p class="product-price">89,99 €</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('bracelet-1', 'Bracelets Artisanaux', 29.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Bracelets Artisanaux</h3>
+                        <p class="product-price">29,99 €</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('earrings-1', 'Boucles d\'oreilles Ethniques', 39.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Boucles d'oreilles Ethniques</h3>
+                        <p class="product-price">39,99 €</p>
+                    </div>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-image">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <div class="product-overlay">
+                            <button class="add-to-cart-btn" onclick="addToCart('cream-1', 'Crème Hydratante Naturelle', 24.99)">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Crème Hydratante Naturelle</h3>
+                        <p class="product-price">24,99 €</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="shop.html" class="cta-button">Voir la boutique</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="services-preview section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Services</h2>
+                <p>Des soins traditionnels pour votre bien-être</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    </div>
+                    <h3>Soin du visage</h3>
+                    <p>Soins naturels à base d'ingrédients africains</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    </div>
+                    <h3>Tresses & Coiffures</h3>
+                    <p>Tresses traditionnelles et coiffures modernes</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    </div>
+                    <h3>Massage</h3>
+                    <p>Massages relaxants aux huiles essentielles</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    </div>
+                    <h3>Soin des pieds</h3>
+                    <p>Pédicure et soins traditionnels</p>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="services.html" class="cta-button">Découvrir tous nos services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be populated by JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: <span id="cart-total">0,00 €</span></strong>
+            </div>
+            <button class="checkout-btn">Commander</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Boutique Africaine</h3>
+                    <p>Votre destination pour l'authenticité africaine</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="WhatsApp">📱</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📍 126 Rue Place <br>7012 Jemappes, Belgique</p>
+                    <p>📞 +32 2 123 45 67</p>
+                    <p>✉️ info@boutique-africaine.be</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <p>Mardi - Samedi: 9h00 - 19h00</p>
+                    <p>Lundi - Dimanche: Fermé</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Boutique Africaine. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

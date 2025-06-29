@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Boutique Africaine</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Boutique Africaine</h2>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="about.html" class="nav-link">À propos</a>
+                <a href="shop.html" class="nav-link">Boutique</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="gallery.html" class="nav-link">Galerie</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <span class="cart-count" id="cart-count">0</span>
+                    🛒
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh; padding-top: 120px;">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Nos Services</h1>
+                <p class="hero-subtitle">Des soins traditionnels africains pour votre bien-être et votre beauté</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.pexels.com/photos/3985333/pexels-photo-3985333.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Soins traditionnels africains">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos Prestations</h2>
+                <p>Découvrez nos soins authentiques inspirés des traditions africaines</p>
+            </div>
+
+            <div class="services-detailed-grid">
+                <!-- Soins du visage -->
+                <div class="service-detailed-card" data-aos="fade-up">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/3985333/pexels-photo-3985333.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Soin du visage">
+                    </div>
+                    <div class="service-content">
+                        <h3>Soins du Visage</h3>
+                        <p>Soins purifiants et hydratants à base d'ingrédients naturels africains comme le beurre de karité, l'huile d'argan et l'argile rouge.</p>
+                        <ul class="service-features">
+                            <li>Nettoyage en profondeur</li>
+                            <li>Gommage aux graines de baobab</li>
+                            <li>Masque à l'argile rouge</li>
+                            <li>Hydratation au beurre de karité</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <span class="price">À partir de 45€</span>
+                            <span class="duration">60 min</span>
+                        </div>
+                        <button class="service-book-btn" onclick="openBookingModal('soin-visage')">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Tresses et coiffures -->
+                <div class="service-detailed-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/6663542/pexels-photo-6663542.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tresses africaines">
+                    </div>
+                    <div class="service-content">
+                        <h3>Tresses & Coiffures</h3>
+                        <p>Coiffures traditionnelles et modernes : tresses, nattes, locks, tissages et coiffures de cérémonie.</p>
+                        <ul class="service-features">
+                            <li>Tresses classiques et modernes</li>
+                            <li>Nattes collées</li>
+                            <li>Tissages et extensions</li>
+                            <li>Coiffures de mariage</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <span class="price">À partir de 35€</span>
+                            <span class="duration">90-180 min</span>
+                        </div>
+                        <button class="service-book-btn" onclick="openBookingModal('coiffure')">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Massages -->
+                <div class="service-detailed-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/3985333/pexels-photo-3985333.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Massage relaxant">
+                    </div>
+                    <div class="service-content">
+                        <h3>Massages Traditionnels</h3>
+                        <p>Massages relaxants et thérapeutiques aux huiles essentielles africaines pour détendre le corps et l'esprit.</p>
+                        <ul class="service-features">
+                            <li>Massage aux huiles d'argan</li>
+                            <li>Massage du dos et nuque</li>
+                            <li>Massage complet du corps</li>
+                            <li>Réflexologie plantaire</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <span class="price">À partir de 55€</span>
+                            <span class="duration">60-90 min</span>
+                        </div>
+                        <button class="service-book-btn" onclick="openBookingModal('massage')">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Soins des pieds -->
+                <div class="service-detailed-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/3985333/pexels-photo-3985333.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Soin des pieds">
+                    </div>
+                    <div class="service-content">
+                        <h3>Soins des Pieds</h3>
+                        <p>Pédicure traditionnelle et soins hydratants pour des pieds doux et soignés.</p>
+                        <ul class="service-features">
+                            <li>Bain de pieds aux herbes</li>
+                            <li>Gommage et exfoliation</li>
+                            <li>Soin des ongles</li>
+                            <li>Massage hydratant</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <span class="price">À partir de 30€</span>
+                            <span class="duration">45 min</span>
+                        </div>
+                        <button class="service-book-btn" onclick="openBookingModal('soin-pieds')">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Soins dentaires traditionnels -->
+                <div class="service-detailed-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/5384445/pexels-photo-5384445.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Soins dentaires">
+                    </div>
+                    <div class="service-content">
+                        <h3>Soins Dentaires Naturels</h3>
+                        <p>Soins d'hygiène dentaire avec des produits naturels africains pour un sourire éclatant.</p>
+                        <ul class="service-features">
+                            <li>Nettoyage au siwak</li>
+                            <li>Blanchiment naturel</li>
+                            <li>Soins des gencives</li>
+                            <li>Conseils d'hygiène</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <span class="price">À partir de 25€</span>
+                            <span class="duration">30 min</span>
+                        </div>
+                        <button class="service-book-btn" onclick="openBookingModal('soin-dentaire')">Réserver</button>
+                    </div>
+                </div>
+
+                <!-- Coiffure homme -->
+                <div class="service-detailed-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/6663542/pexels-photo-6663542.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Coiffure homme">
+                    </div>
+                    <div class="service-content">
+                        <h3>Coiffure Homme</h3>
+                        <p>Coupes modernes et traditionnelles, taille de barbe et soins capillaires pour hommes.</p>
+                        <ul class="service-features">
+                            <li>Coupe moderne et classique</li>
+                            <li>Taille et soin de barbe</li>
+                            <li>Soins capillaires</li>
+                            <li>Conseils styling</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <span class="price">À partir de 20€</span>
+                            <span class="duration">45 min</span>
+                        </div>
+                        <button class="service-book-btn" onclick="openBookingModal('coiffure-homme')">Réserver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeBookingModal()">×</button>
+            <h2>Réserver un Service</h2>
+            <form id="booking-form" class="booking-form">
+                <div class="form-group">
+                    <label for="service-type">Service souhaité *</label>
+                    <select id="service-type" name="service" required>
+                        <option value="">Choisissez un service</option>
+                        <option value="soin-visage">Soin du Visage (45€ - 60min)</option>
+                        <option value="coiffure">Tresses & Coiffures (35€ - 90-180min)</option>
+                        <option value="massage">Massage Traditionnel (55€ - 60-90min)</option>
+                        <option value="soin-pieds">Soin des Pieds (30€ - 45min)</option>
+                        <option value="soin-dentaire">Soin Dentaire Naturel (25€ - 30min)</option>
+                        <option value="coiffure-homme">Coiffure Homme (20€ - 45min)</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-name">Nom complet *</label>
+                        <input type="text" id="client-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-phone">Téléphone *</label>
+                        <input type="tel" id="client-phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="client-email">Email *</label>
+                    <input type="email" id="client-email" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="booking-date">Date souhaitée *</label>
+                        <input type="date" id="booking-date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-time">Heure souhaitée *</label>
+                        <select id="booking-time" name="time" required>
+                            <option value="">Choisissez une heure</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="special-requests">Demandes spéciales</label>
+                    <textarea id="special-requests" name="requests" rows="4" placeholder="Allergies, préférences particulières, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span class="checkmark"></span>
+                        J'accepte les <a href="#" target="_blank">conditions générales</a> *
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <span class="checkmark"></span>
+                        Je souhaite recevoir les actualités et offres spéciales
+                    </label>
+                </div>
+
+                <button type="submit" class="cta-button">Confirmer la réservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be populated by JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: <span id="cart-total">0,00 €</span></strong>
+            </div>
+            <button class="checkout-btn">Commander</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Boutique Africaine</h3>
+                    <p>Votre destination pour l'authenticité africaine</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="WhatsApp">📱</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📍 126 Rue de l'Afrique<br>19160 Bruxelles, Belgique</p>
+                    <p>📞 +32 2 123 45 67</p>
+                    <p>✉️ info@boutique-africaine.be</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <p>Lundi - Vendredi: 9h - 18h</p>
+                    <p>Samedi: 10h - 17h</p>
+                    <p>Dimanche: Fermé</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Boutique Africaine. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/services.js"></script>
+
+    <style>
+        .services-detailed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .service-detailed-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .service-detailed-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: var(--spacing-lg);
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .service-features {
+            list-style: none;
+            margin: var(--spacing-md) 0;
+        }
+
+        .service-features li {
+            padding: var(--spacing-xs) 0;
+            position: relative;
+            padding-left: var(--spacing-md);
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .service-pricing {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: var(--spacing-md) 0;
+            padding: var(--spacing-sm);
+            background: var(--gray-light);
+            border-radius: var(--border-radius);
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .duration {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .service-book-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .service-book-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .booking-form {
+            max-width: 500px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-xs);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .checkbox-label a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .checkbox-label a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .services-detailed-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

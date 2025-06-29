@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Boutique Africaine</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Boutique Valfred</h2>
+            </div>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="about.html" class="nav-link">À propos</a>
+                <a href="shop.html" class="nav-link">Boutique</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="gallery.html" class="nav-link active">Galerie</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <span class="cart-count" id="cart-count">0</span>
+                    🛒
+                </div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 50vh; padding-top: 120px;">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Notre Galerie</h1>
+                <p class="hero-subtitle">Découvrez nos créations, nos services et l'ambiance de notre boutique</p>
+            </div>
+            <div class="hero-image">
+                <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section section-padding">
+        <div class="container">
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">Toutes les photos</button>
+                <button class="filter-btn" data-filter="produits">Produits</button>
+                <button class="filter-btn" data-filter="services">Services</button>
+                <button class="filter-btn" data-filter="boutique">Boutique</button>
+                <button class="filter-btn" data-filter="evenements">Événements</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Produits -->
+                <div class="gallery-item" data-category="produits" data-aos="fade-up">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Collection Robes</h3>
+                        <p>Robes traditionnelles en wax</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="produits" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Bijoux Artisanaux</h3>
+                        <p>Créations uniques en perles</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="produits" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Ensembles Traditionnels</h3>
+                        <p>Tenues complètes authentiques</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="produits" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Cosmétiques Naturels</h3>
+                        <p>Produits à base de karité</p>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div class="gallery-item" data-category="services" data-aos="fade-up">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Tresses Africaines</h3>
+                        <p>Coiffures traditionnelles</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="services" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Soins du Visage</h3>
+                        <p>Traitements naturels</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="services" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Massages</h3>
+                        <p>Détente et bien-être</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="services" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Coiffure Homme</h3>
+                        <p>Coupes modernes</p>
+                    </div>
+                </div>
+
+                <!-- Boutique -->
+                <div class="gallery-item" data-category="boutique" data-aos="fade-up">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Notre Boutique</h3>
+                        <p>Espace chaleureux et accueillant</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="boutique" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Espace Vêtements</h3>
+                        <p>Collection soigneusement sélectionnée</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="boutique" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Salon de Soins</h3>
+                        <p>Espace dédié au bien-être</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="boutique" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Vitrine Bijoux</h3>
+                        <p>Pièces uniques et authentiques</p>
+                    </div>
+                </div>
+
+                <!-- Événements -->
+                <div class="gallery-item" data-category="evenements" data-aos="fade-up">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Défilé de Mode</h3>
+                        <p>Présentation collection automne</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="evenements" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Atelier Tresses</h3>
+                        <p>Formation coiffure traditionnelle</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="evenements" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Inauguration</h3>
+                        <p>Ouverture de notre boutique</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="evenements" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Fête Culturelle</h3>
+                        <p>Célébration de la culture africaine</p>
+                    </div>
+                </div>
+
+                <!-- Plus d'images pour enrichir la galerie -->
+                <div class="gallery-item" data-category="produits" data-aos="fade-up">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Huiles Essentielles</h3>
+                        <p>Produits de soin naturels</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="services" data-aos="fade-up" data-aos-delay="100">
+<img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Soin des Pieds</h3>
+                        <p>Pédicure traditionnelle</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="boutique" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                    <div class="gallery-overlay">
+                        <h3>Espace Accueil</h3>
+                        <p>Bienvenue dans notre univers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <img id="lightbox-image" src="" alt="">
+        <div class="lightbox-nav">
+            <button class="lightbox-prev" onclick="prevImage()">‹</button>
+            <button class="lightbox-next" onclick="nextImage()">›</button>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be populated by JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: <span id="cart-total">0,00 €</span></strong>
+            </div>
+            <button class="checkout-btn">Commander</button>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Boutique Africaine</h3>
+                    <p>Votre destination pour l'authenticité africaine</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="WhatsApp">📱</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="shop.html">Boutique</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📍 126 Rue de Place Jemappes<br>7012 Jemappes, Belgique</p>
+                    <p>📞 +32 2 123 45 67</p>
+                    <p>✉️ info@boutique-africaine.be</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Horaires</h4>
+                    <p>Mardi-Samedi : 9h00 - 19h00</p>
+                    <p>Lundi-Dimanche: Fermé</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Boutique Africaine. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/gallery.js"></script>
+
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius-lg);
+            cursor: pointer;
+            transition: var(--transition);
+            aspect-ratio: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--white);
+            padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.1rem;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 3rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-color);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 var(--spacing-lg);
+            transform: translateY(-50%);
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: var(--spacing-sm);
+            }
+
+            .lightbox-nav {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .lightbox-prev,
+            .lightbox-next {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</body>
+</html>
