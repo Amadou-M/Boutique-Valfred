@@ -1,13 +1,11 @@
-// Services page functionality
 document.addEventListener('DOMContentLoaded', function() {
     initBookingModal();
     initBookingForm();
-    loadCartFromStorage();
+    // loadCartFromStorage(); // Supprimé si non utilisé dans services.html
 });
 
 // Booking modal functionality
 function initBookingModal() {
-    // Set minimum date to today
     const dateInput = document.getElementById('booking-date');
     if (dateInput) {
         const today = new Date().toISOString().split('T')[0];
@@ -20,11 +18,9 @@ function openBookingModal(serviceType) {
     const serviceSelect = document.getElementById('service-type');
     
     if (modal && serviceSelect) {
-        // Pre-select the service if specified
         if (serviceType) {
             serviceSelect.value = serviceType;
         }
-        
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
@@ -35,8 +31,6 @@ function closeBookingModal() {
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = '';
-        
-        // Reset form
         const form = document.getElementById('booking-form');
         if (form) {
             form.reset();
@@ -107,39 +101,46 @@ function submitBookingForm(form) {
     
     // Collect form data
     const formData = new FormData(form);
-    const bookingData = {
-        service: formData.get('service'),
-        name: `${formData.get('firstName')} ${formData.get('lastName')}`,
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        date: formData.get('date'),
-        time: formData.get('time'),
-        requests: formData.get('requests'),
-        newsletter: formData.get('newsletter') === 'on',
-        timestamp: new Date().toISOString()
-    };
     
-    // Simulate API call
-    setTimeout(() => {
-        // Save booking to localStorage for demo
-        saveBookingToStorage(bookingData);
-        
-        // Show success message
-        showToast('Réservation confirmée ! Nous vous contacterons bientôt.', 'success');
-        
-        // Reset form and close modal
-        form.reset();
-        closeBookingModal();
-        
-        // Reset button state
+    // Send data to PHP script
+    fetch('send_booking.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Save to localStorage (optional, si vous souhaitez conserver cette fonctionnalité)
+            const bookingData = {
+                service: formData.get('service'),
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                date: formData.get('date'),
+                time: formData.get('time'),
+                requests: formData.get('requests'),
+                newsletter: formData.get('newsletter') ? true : false,
+                timestamp: new Date().toISOString()
+            };
+            saveBookingToStorage(bookingData);
+            
+            showToast('Réservation confirmée ! Nous vous contacterons bientôt.', 'success');
+            form.reset();
+            closeBookingModal();
+        } else {
+            showToast(data.message || 'Erreur lors de l\'envoi de la réservation.', 'error');
+        }
         btnText.style.display = 'inline';
         btnLoading.style.display = 'none';
         submitBtn.disabled = false;
-        
-        // Send confirmation email (in real app)
-        // sendBookingConfirmation(bookingData);
-        
-    }, 2000);
+    })
+    .catch(error => {
+        showToast('Erreur lors de l\'envoi de la réservation. Veuillez réessayer.', 'error');
+        console.error('Fetch error:', error);
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        submitBtn.disabled = false;
+    });
 }
 
 function saveBookingToStorage(bookingData) {
@@ -188,7 +189,6 @@ const servicesData = {
     }
 };
 
-// Get service details
 function getServiceDetails(serviceId) {
     return servicesData[serviceId] || null;
 }
@@ -207,3 +207,46 @@ document.addEventListener('keydown', function(e) {
         closeBookingModal();
     }
 });
+
+// Helper functions (assumées dans main.js, mais incluses ici pour complétude)
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidPhone(phone) {
+    return /^\+?\d{8,15}$/.test(phone);
+}
+
+function showFieldError(field, message) {
+    const error = document.createElement('div');
+    error.className = 'form-error';
+    error.style.color = 'red';
+    error.style.fontSize = '0.8rem';
+    error.textContent = message;
+    field.parentElement.appendChild(error);
+}
+
+function showToast(message, type) {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    toast.style.position = 'fixed';
+    toast.style.bottom = '20px';
+    toast.style.right = '20px';
+    toast.style.padding = '10px 20px';
+    toast.style.background = type === 'success' ? '#4CAF50' : '#F44336';
+    toast.style.color = '#fff';
+    toast.style.borderRadius = '5px';
+    toast.style.zIndex = '1000';
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+}
+
+function saveToStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+
+function loadFromStorage(key) {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+}

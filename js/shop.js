@@ -1,38 +1,3 @@
-// Shop page functionality
-document.addEventListener('DOMContentLoaded', function() {
-    initProductFilters();
-    loadCartFromStorage();
-});
-
-// Product filtering
-function initProductFilters() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const productCards = document.querySelectorAll('.product-card');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
-            
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Filter products
-            productCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                
-                if (filter === 'all' || category === filter) {
-                    card.style.display = 'block';
-                    card.style.animation = 'fadeInUp 0.5s ease';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
-}
-
-// Enhanced product data
 const productData = {
     'dress-1': {
         name: 'Robe Africaine Élégante',
@@ -113,68 +78,35 @@ const productData = {
     }
 };
 
-// Get product details
 function getProductDetails(productId) {
     return productData[productId] || null;
 }
 
-// Search functionality (if needed)
-function initProductSearch() {
-    const searchInput = document.getElementById('product-search');
-    if (!searchInput) return;
+function initProductFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
     
-    searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const productCards = document.querySelectorAll('.product-card');
-        
-        productCards.forEach(card => {
-            const productName = card.querySelector('h3').textContent.toLowerCase();
-            const productDescription = card.querySelector('.product-description').textContent.toLowerCase();
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
             
-            if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
+            const filter = this.getAttribute('data-filter');
+            
+            productCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    card.style.display = 'block';
+                    card.setAttribute('data-aos', 'fade-up');
+                    AOS.refresh();
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
     });
 }
 
-// Sort functionality
-function initProductSort() {
-    const sortSelect = document.getElementById('product-sort');
-    if (!sortSelect) return;
-    
-    sortSelect.addEventListener('change', function() {
-        const sortBy = this.value;
-        const productsGrid = document.getElementById('products-grid');
-        const productCards = Array.from(productsGrid.querySelectorAll('.product-card'));
-        
-        productCards.sort((a, b) => {
-            const priceA = parseFloat(a.querySelector('.product-price').textContent.replace('€', '').replace(',', '.'));
-            const priceB = parseFloat(b.querySelector('.product-price').textContent.replace('€', '').replace(',', '.'));
-            const nameA = a.querySelector('h3').textContent;
-            const nameB = b.querySelector('h3').textContent;
-            
-            switch (sortBy) {
-                case 'price-low':
-                    return priceA - priceB;
-                case 'price-high':
-                    return priceB - priceA;
-                case 'name':
-                    return nameA.localeCompare(nameB);
-                default:
-                    return 0;
-            }
-        });
-        
-        // Re-append sorted cards
-        productCards.forEach(card => productsGrid.appendChild(card));
-    });
-}
-
-// Initialize additional features if elements exist
 document.addEventListener('DOMContentLoaded', function() {
-    initProductSearch();
-    initProductSort();
+    initProductFilters();
 });

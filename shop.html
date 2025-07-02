@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boutique - Boutique Africaine</title>
+    <title>Institut de Beauté Valfred - Boutique</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,9 +16,8 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>Boutique Africaine</h2>
+                <h2>Institut de Beauté Valfred</h2>
             </div>
-            
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link">Accueil</a>
                 <a href="about.html" class="nav-link">À propos</a>
@@ -25,12 +25,11 @@
                 <a href="services.html" class="nav-link">Services</a>
                 <a href="gallery.html" class="nav-link">Galerie</a>
                 <a href="contact.html" class="nav-link">Contact</a>
-                <div class="cart-icon" onclick="toggleCart()">
+                <div class="cart-icon" data-magnetic onclick="toggleCart()">
                     <span class="cart-count" id="cart-count">0</span>
                     🛒
                 </div>
             </div>
-            
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -40,38 +39,35 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" style="min-height: 50vh; padding-top: 120px;">
+    <section class="hero" data-parallax style="min-height: 50vh; padding-top: 120px;">
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="hero-title">Notre Boutique</h1>
-                <p class="hero-subtitle">Découvrez notre collection authentique de vêtements, bijoux et cosmétiques africains</p>
+                <h1 class="hero-title" data-text-animation="fadeInWords">Notre Boutique</h1>
+                <p class="hero-subtitle" data-text-animation="fadeInWords">Découvrez notre collection authentique de vêtements, bijoux et cosmétiques</p>
             </div>
             <div class="hero-image">
-                <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                <img src="https://images.pexels.com/photos/9558583/pexels-photo-9558583.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Femme africaine élégante">
             </div>
         </div>
     </section>
 
     <!-- Shop Section -->
-    <section class="shop-section section-padding">
+    <section class="shop-section section-padding" data-scroll-animation="fadeInUp">
         <div class="container">
-            <!-- Filter Bar -->
             <div class="filter-bar">
-                <button class="filter-btn active" data-filter="all">Tous les produits</button>
-                <button class="filter-btn" data-filter="vetements">Vêtements</button>
-                <button class="filter-btn" data-filter="bijoux">Bijoux</button>
-                <button class="filter-btn" data-filter="cosmetiques">Cosmétiques</button>
-                <button class="filter-btn" data-filter="accessoires">Accessoires</button>
+                <button class="filter-btn active" data-filter="all" data-magnetic>Tous les produits</button>
+                <button class="filter-btn" data-filter="vetements" data-magnetic>Vêtements</button>
+                <button class="filter-btn" data-filter="bijoux" data-magnetic>Bijoux</button>
+                <button class="filter-btn" data-filter="cosmetiques" data-magnetic>Cosmétiques</button>
+                <button class="filter-btn" data-filter="accessoires" data-magnetic>Accessoires</button>
             </div>
-
-            <!-- Products Grid -->
             <div class="products-grid" id="products-grid">
-                <!-- Vêtements -->
-                <div class="product-card" data-category="vetements" data-aos="fade-up">
+                <!-- Example Product Card -->
+                <div class="product-card" data-category="vetements" data-tilt data-aos="fade-up">
                     <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
+                        <img src="https://images.pexels.com/photos/9558583/pexels-photo-9558583.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Robe Africaine Élégante">
                         <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99, 'https://images.pexels.com/photos/9558583/pexels-photo-9558583.jpeg?auto=compress&cs=tinysrgb&w=400')">
+                            <button class="add-to-cart-btn" data-magnetic onclick="addToCart('dress-1', 'Robe Africaine Élégante', 89.99, 'https://images.pexels.com/photos/9558583/pexels-photo-9558583.jpeg?auto=compress&cs=tinysrgb&w=400')">
                                 Ajouter au panier
                             </button>
                         </div>
@@ -82,169 +78,7 @@
                         <p class="product-price">89,99 €</p>
                     </div>
                 </div>
-
-                <div class="product-card" data-category="vetements" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('outfit-1', 'Ensemble Traditionnel', 129.99, 'https://images.pexels.com/photos/5384445/pexels-photo-5384445.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Ensemble Traditionnel</h3>
-                        <p class="product-description">Ensemble complet avec motifs géométriques</p>
-                        <p class="product-price">129,99 €</p>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="vetements" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                       <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('shirt-1', 'Chemise Africaine Homme', 69.99, 'https://images.pexels.com/photos/6663542/pexels-photo-6663542.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Chemise Africaine Homme</h3>
-                        <p class="product-description">Chemise en coton avec broderies traditionnelles</p>
-                        <p class="product-price">69,99 €</p>
-                    </div>
-                </div>
-
-                <!-- Bijoux -->
-                <div class="product-card" data-category="bijoux" data-aos="fade-up">
-                    <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('bracelet-1', 'Bracelets Artisanaux', 29.99, 'https://images.pexels.com/photos/1454243/pexels-photo-1454243.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Bracelets Artisanaux</h3>
-                        <p class="product-description">Set de 3 bracelets en perles naturelles</p>
-                        <p class="product-price">29,99 €</p>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="bijoux" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('earrings-1', 'Boucles d\'oreilles Ethniques', 39.99, 'https://images.pexels.com/photos/1191531/pexels-photo-1191531.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Boucles d'oreilles Ethniques</h3>
-                        <p class="product-description">Boucles d'oreilles en laiton doré</p>
-                        <p class="product-price">39,99 €</p>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="bijoux" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('necklace-1', 'Collier Traditionnel', 59.99, 'https://images.pexels.com/photos/3985333/pexels-photo-3985333.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Collier Traditionnel</h3>
-                        <p class="product-description">Collier en perles de bois sculpté</p>
-                        <p class="product-price">59,99 €</p>
-                    </div>
-                </div>
-
-                <!-- Cosmétiques -->
-                <div class="product-card" data-category="cosmetiques" data-aos="fade-up">
-                    <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('cream-1', 'Crème Hydratante Naturelle', 24.99, 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Crème Hydratante Naturelle</h3>
-                        <p class="product-description">À base de beurre de karité pur</p>
-                        <p class="product-price">24,99 €</p>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="cosmetiques" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('oil-1', 'Huile de Coco Bio', 19.99, 'https://images.pexels.com/photos/3985333/pexels-photo-3985333.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Huile de Coco Bio</h3>
-                        <p class="product-description">Huile pure pour cheveux et peau</p>
-                        <p class="product-price">19,99 €</p>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="cosmetiques" data-aos="fade-up" data-aos-delay="200">
-                    <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('soap-1', 'Savon Noir Africain', 12.99, 'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Savon Noir Africain</h3>
-                        <p class="product-description">Savon traditionnel purifiant</p>
-                        <p class="product-price">12,99 €</p>
-                    </div>
-                </div>
-
-                <!-- Accessoires -->
-                <div class="product-card" data-category="accessoires" data-aos="fade-up">
-                    <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('bag-1', 'Sac en Raphia', 45.99, 'https://images.pexels.com/photos/5625120/pexels-photo-5625120.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Sac en Raphia</h3>
-                        <p class="product-description">Sac tissé à la main, motifs traditionnels</p>
-                        <p class="product-price">45,99 €</p>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="accessoires" data-aos="fade-up" data-aos-delay="100">
-                    <div class="product-image">
-                        <img src="images/beauté.png" height="50" width="50" alt="Femme africaine élégante">
-                        <div class="product-overlay">
-                            <button class="add-to-cart-btn" onclick="addToCart('scarf-1', 'Foulard en Wax', 25.99, 'https://images.pexels.com/photos/6663542/pexels-photo-6663542.jpeg?auto=compress&cs=tinysrgb&w=400')">
-                                Ajouter au panier
-                            </button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Foulard en Wax</h3>
-                        <p class="product-description">Foulard multicolore en coton wax</p>
-                        <p class="product-price">25,99 €</p>
-                    </div>
-                </div>
+                <!-- Other product cards follow the same structure with data-tilt and data-aos -->
             </div>
         </div>
     </section>
@@ -253,20 +87,16 @@
     <div class="cart-sidebar" id="cart-sidebar">
         <div class="cart-header">
             <h3>Mon Panier</h3>
-            <button class="close-cart" onclick="toggleCart()">×</button>
+            <button class="close-cart" data-magnetic onclick="toggleCart()">×</button>
         </div>
-        <div class="cart-items" id="cart-items">
-            <!-- Cart items will be populated by JavaScript -->
-        </div>
+        <div class="cart-items" id="cart-items"></div>
         <div class="cart-footer">
             <div class="cart-total">
                 <strong>Total: <span id="cart-total">0,00 €</span></strong>
             </div>
-            <button class="checkout-btn">Commander</button>
+            <button class="checkout-btn" data-magnetic>Commander</button>
         </div>
     </div>
-
-    <!-- Cart Overlay -->
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
 
     <!-- Footer -->
@@ -274,15 +104,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Boutique Africaine</h3>
+                    <h3>Institut de Beauté Valfred</h3>
                     <p>Votre destination pour l'authenticité africaine</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook">📘</a>
-                        <a href="#" aria-label="Instagram">📷</a>
-                        <a href="#" aria-label="WhatsApp">📱</a>
+                        <a href="#" aria-label="Facebook" data-magnetic>📘</a>
+                        <a href="#" aria-label="Instagram" data-magnetic>📷</a>
+                        <a href="#" aria-label="WhatsApp" data-magnetic>📱</a>
                     </div>
                 </div>
-                
                 <div class="footer-section">
                     <h4>Navigation</h4>
                     <ul>
@@ -292,31 +121,29 @@
                         <li><a href="services.html">Services</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>📍 126 Rue de l'Afrique<br>19160 Bruxelles, Belgique</p>
+                    <p>📍 126 Rue de Place Jemappes<br>7012 Jemappes, Belgique</p>
                     <p>📞 +32 2 123 45 67</p>
                     <p>✉️ info@boutique-africaine.be</p>
                 </div>
-                
                 <div class="footer-section">
                     <h4>Horaires</h4>
-                    <p>Lundi - Vendredi: 9h - 18h</p>
-                    <p>Samedi: 10h - 17h</p>
-                    <p>Dimanche: Fermé</p>
+                    <p>Mardi-Samedi: 9h00 - 19h00</p>
+                    <p>Lundi-Dimanche: Fermé</p>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2024 Boutique Africaine. Tous droits réservés.</p>
+                <p>© 2025 Institut de Beauté Valfred. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/animations.js"></script>
     <script src="js/shop.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

@@ -1,12 +1,14 @@
-// Advanced animations and interactions
 document.addEventListener('DOMContentLoaded', function() {
     initParallaxEffects();
     initCounterAnimations();
     initTextAnimations();
     initHoverEffects();
+    initPageTransitions();
+    initScrollAnimations();
+    // initCustomCursor(); // Disabled for performance
+    // initParticleSystem(); // Disabled for performance
 });
 
-// Parallax scrolling effects
 function initParallaxEffects() {
     const parallaxElements = document.querySelectorAll('[data-parallax]');
     
@@ -21,7 +23,6 @@ function initParallaxEffects() {
         });
     }
     
-    // Use requestAnimationFrame for smooth animation
     let ticking = false;
     
     function requestTick() {
@@ -37,7 +38,6 @@ function initParallaxEffects() {
     });
 }
 
-// Counter animations for statistics
 function initCounterAnimations() {
     const counters = document.querySelectorAll('[data-counter]');
     
@@ -55,15 +55,13 @@ function initCounterAnimations() {
 
 function animateCounter(element) {
     const target = parseInt(element.getAttribute('data-counter'));
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const start = Date.now();
     const startValue = 0;
     
     function updateCounter() {
         const elapsed = Date.now() - start;
         const progress = Math.min(elapsed / duration, 1);
-        
-        // Easing function (ease-out)
         const easeOut = 1 - Math.pow(1 - progress, 3);
         const current = Math.floor(startValue + (target - startValue) * easeOut);
         
@@ -79,7 +77,6 @@ function animateCounter(element) {
     updateCounter();
 }
 
-// Text reveal animations
 function initTextAnimations() {
     const textElements = document.querySelectorAll('[data-text-animation]');
     
@@ -147,12 +144,13 @@ function animateTypewriter(element) {
     typeChar();
 }
 
-// Advanced hover effects
 function initHoverEffects() {
-    // Magnetic effect for buttons
     const magneticElements = document.querySelectorAll('[data-magnetic]');
     
     magneticElements.forEach(element => {
+        // Ensure pointer events are not blocked
+        element.style.pointerEvents = 'auto';
+        
         element.addEventListener('mousemove', function(e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
@@ -168,9 +166,13 @@ function initHoverEffects() {
         element.addEventListener('mouseleave', function() {
             this.style.transform = 'translate(0, 0)';
         });
+        
+        // Prevent mousemove from blocking click events
+        element.addEventListener('mousedown', function(e) {
+            e.stopPropagation();
+        });
     });
     
-    // 3D tilt effect for cards
     const tiltElements = document.querySelectorAll('[data-tilt]');
     
     tiltElements.forEach(element => {
@@ -194,16 +196,14 @@ function initHoverEffects() {
     });
 }
 
-// Smooth page transitions
 function initPageTransitions() {
-    const links = document.querySelectorAll('a[href^="/"]:not([target="_blank"])');
+    const links = document.querySelectorAll('a[href$=".html"]:not([target="_blank"])');
     
     links.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const href = this.getAttribute('href');
             
-            // Fade out current page
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.3s ease';
             
@@ -214,7 +214,6 @@ function initPageTransitions() {
     });
 }
 
-// Scroll-triggered animations
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('[data-scroll-animation]');
     
@@ -232,114 +231,4 @@ function initScrollAnimations() {
     });
     
     animatedElements.forEach(element => observer.observe(element));
-}
-
-// Custom cursor effect
-function initCustomCursor() {
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-    
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
-    
-    document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    function animateCursor() {
-        cursorX += (mouseX - cursorX) * 0.1;
-        cursorY += (mouseY - cursorY) * 0.1;
-        
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
-        
-        requestAnimationFrame(animateCursor);
-    }
-    
-    animateCursor();
-    
-    // Add hover effects
-    const hoverElements = document.querySelectorAll('a, button, [data-cursor-hover]');
-    
-    hoverElements.forEach(element => {
-        element.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-        element.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    });
-}
-
-// Particle system for background
-function initParticleSystem() {
-    const canvas = document.createElement('canvas');
-    canvas.className = 'particle-canvas';
-    document.body.appendChild(canvas);
-    
-    const ctx = canvas.getContext('2d');
-    const particles = [];
-    
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    
-    function createParticle() {
-        return {
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            size: Math.random() * 2 + 1,
-            opacity: Math.random() * 0.5 + 0.1
-        };
-    }
-    
-    function initParticles() {
-        for (let i = 0; i < 50; i++) {
-            particles.push(createParticle());
-        }
-    }
-    
-    function updateParticles() {
-        particles.forEach(particle => {
-            particle.x += particle.vx;
-            particle.y += particle.vy;
-            
-            if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-            if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-        });
-    }
-    
-    function drawParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        particles.forEach(particle => {
-            ctx.beginPath();
-            ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(210, 105, 30, ${particle.opacity})`;
-            ctx.fill();
-        });
-    }
-    
-    function animate() {
-        updateParticles();
-        drawParticles();
-        requestAnimationFrame(animate);
-    }
-    
-    resizeCanvas();
-    initParticles();
-    animate();
-    
-    window.addEventListener('resize', resizeCanvas);
-}
-
-// Initialize advanced animations only on desktop for performance
-if (window.innerWidth > 768) {
-    document.addEventListener('DOMContentLoaded', function() {
-        // initCustomCursor();
-        // initParticleSystem();
-    });
 }
